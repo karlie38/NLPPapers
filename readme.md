@@ -2,6 +2,6 @@
 공부하는 거 정리하기
 
 ## Paper Lists
-| Task Type | Paper Name | Links |
+| Index | Paper Name | Links |
 | ------ | ------ | ------ |
-|Summarization| QMSum: A New Benchmark for Query-based Multi-domain Meeting Summarization |[https://arxiv.org/pdf/2104.05938.pdf][PlDb] |
+|001| Predict then Interpolate: A Simple Algorithm to Learn Stable Classifiers |[Links][https://arxiv.org/pdf/2105.12628.pdf] |
