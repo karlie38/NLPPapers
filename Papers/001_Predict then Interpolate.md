@@ -28,19 +28,19 @@
 
 아래 질문에서 실험을 시작함
 > What happens if we apply a classifier f1 trained on environment E1 to a different environment E2?
-> _(E1 환경에 학습시킨 classifier 모델을 다른 환경에 적용한다면?)_
+> E1 환경에 학습시킨 classifier 모델을 다른 환경에 적용한다면?
 
 직관적으로 생각했을 때, classifier f1이 잘못 예측하는 실수는 사실 feature와 label간의 correlations이 unstable하기 때문
 
 > The unstable correlation within the subset of wrong prediction is **opposite** of that within the subset of correct prediction.
-> _(잘 예측한 subset 내 feature과 라벨 간에 높은 correlation이 존재하고, 틀리게 예측한 subset에서는 feature과 라벨 간의 correlation이 낮다 (불안정))_
+> 잘 예측한 subset 내 feature과 라벨 간에 높은 correlation이 존재하고, 틀리게 예측한 subset에서는 feature과 라벨 간의 correlation이 낮다 (불안정)
 
 그래서 이 **2가지 subset을 잘 interpolate 하면 (섞으면) Oracle distribution**을 찾을 수 있다.
 
 
 #### 본 논문에서 제안하는 Predict and Interpolate 방법론 (PI)
 
-![image](https://user-images.githubusercontent.com/56949426/126861093-ca267310-13d9-4b31-866c-7d304e2c0b62.png)
+![1](https://user-images.githubusercontent.com/56949426/126861732-f3a4eba2-d0ee-4d26-92ad-6de63e43f41f.png)
 
 **<Step 3>**
 1. 각 환경 Ei에 대해 specific한 classifier fi 훈련시키기
