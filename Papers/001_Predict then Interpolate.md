@@ -1,10 +1,11 @@
+# Predict then Interpolate: A Simple Algorithm to Learn Stable Classifier
 
 ***
 
 ## Info
-ICML 2021 Oral Session
-Author: Yujia Bao, Shiyu Chang, Regina Barzilay
-Paper link: https://arxiv.org/pdf/2105.12628.pdf
+- ICML 2021 Oral Session
+- Author: Yujia Bao, Shiyu Chang, Regina Barzilay
+- Paper link: https://arxiv.org/pdf/2105.12628.pdf
 
 ## Summary
 내 요약
@@ -25,11 +26,11 @@ Paper link: https://arxiv.org/pdf/2105.12628.pdf
 
 아래 질문에서 실험을 시작함
 > What happens if we apply a classifier f1 trained on environment E1 to a different environment E2?
-(E1 환경에 학습시킨 classifier 모델을 다른 환경에 적용한다면?)
+> (E1 환경에 학습시킨 classifier 모델을 다른 환경에 적용한다면?)
 
 직관적으로 생각했을 때, classifier f1이 잘못 예측하는 실수는 사실 feature와 label간의 correlations이 unstable하기 때문
 
->The unstable correlation within the subset of wrong prediction is **opposite** of that within the subset of correct prediction.
-(잘 예측한 subset 내 feature과 라벨 간에 높은 correlation이 존재하고, 틀리게 예측한 subset에서는 feature과 라벨 간의 correlation이 낮다 (불안정))
+> The unstable correlation within the subset of wrong prediction is **opposite** of that within the subset of correct prediction.
+> (잘 예측한 subset 내 feature과 라벨 간에 높은 correlation이 존재하고, 틀리게 예측한 subset에서는 feature과 라벨 간의 correlation이 낮다 (불안정))
 
 그래서 이 2가지 subset을 잘 interpolate 하면 (섞으면) Oracle distribution을 찾을 수 있다.
