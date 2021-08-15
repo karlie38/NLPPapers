@@ -42,15 +42,17 @@ Abstract summarization (생성 요약)
 
 #### Result
 CNN/Daily Mail dataset 결과
+
 ![image](https://user-images.githubusercontent.com/56949426/129464598-136fbb04-5e44-4922-abd6-12dbbc1d0dc9.png)
 
-	- SimCLS 젤 성능 높음
-	- Generator로 pretrained BART 사용
+- SimCLS 젤 성능 높음
+- Generator로 pretrained BART 사용
 
 
 XSum 결과
+
 ![image](https://user-images.githubusercontent.com/56949426/129464627-286bba70-8050-43df-ad19-e6b44538c0eb.png)
 
-	- SimCLS 젤 성능 높음
-	- Generator로 pretrained Pegasus 사용
+- SimCLS 젤 성능 높음
+- Generator로 pretrained Pegasus 사용
 
