@@ -81,3 +81,16 @@ Nonlinear: ReLU
 - Pruned 해도 오리지널 모델과 비교했을 때, 성능 감소폭이 크지 않음
 
 
+#### Ablation study
+![image](https://user-images.githubusercontent.com/56949426/129715428-0d45a34e-8afd-4d04-8ff9-b61e6d4beec1.png)
+
+- Data augmentation(DA), knowledge distillation (KD) 성능 저하에 큰 영향 줌
+- Normalization: Softmax > ReLU
+- Convolution kernel size: 3일 때 best
+- 다른 Conv랑 비교해도, DWConv가 제일 성능 좋음
+
+![image](https://user-images.githubusercontent.com/56949426/129715703-18905ee9-a958-4152-86ea-863306a15f25.png)
+![image](https://user-images.githubusercontent.com/56949426/129715735-d8869de7-771c-4c9b-8523-4e94747c210f.png)
+
+- 고스트 모듈 두는 위치는 여러 실험 진행
+- 메모리 사용(효율성)과 성능 모두 고려해서 ‘After O’랑 ‘After FFN2’의 위치에 두기로 함.
