@@ -24,6 +24,7 @@ Over-Parameterized of Neural Networks
 
 1. Computer vision 분야에서 CNN에서 redundant feature가 성능 향상에 도움주었다는 연구 결과
 2. Pre-trained language model에서 attention map이 Convolution layer의 feature map과 비슷한 패턴을 보인다는 연구 결과
+
 => 그래서 CNN 기반 (어텐션 역할을 한다고 생각하고) redundant feature(모델 학습에 있어 redundant feature는 중요)을 생성하는 Ghost Module
 
 - **Model architecture**
@@ -32,7 +33,7 @@ Over-Parameterized of Neural Networks
 
 
 - (pruned)란 의미는 pruned bert에 적용할 수도 있고 original bert에 적용할 수 있음을 뜻함
-- 보는 것처럼 MHA 혹은 FFN 에서 나온 original feature과 그걸 Ghost Module로 태운 값을 concat해서 사용함
+- 보는 것처럼 MHA(Multi head attention) 혹은 FFN(Feed forward network) 에서 나온 original feature과 그걸 Ghost Module로 태운 값을 concat해서 사용함
 
 
 - **Ghost module function**
