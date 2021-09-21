@@ -29,12 +29,12 @@ self-attention 내 dot product를 대체할 수 있을까
 
 1. Dense Synthesizer
 
-![image](https://user-images.githubusercontent.com/56949426/134158136-3b55d473-840b-43ed-ac73-3b85085b3b3f.png)
+![image](https://user-images.githubusercontent.com/56949426/134158169-9f12068d-a04f-4737-aa2d-e1828706ac30.png)
+
 
 - 위의 그림처럼 L(sequence length)가 5일 때, 각 토큰마다 F를 거쳐 vector (초록색 라인)를 만들어 냄으로 B(L x L matrix) 생성
 
-
-![image](https://user-images.githubusercontent.com/56949426/134158169-9f12068d-a04f-4737-aa2d-e1828706ac30.png)
+![image](https://user-images.githubusercontent.com/56949426/134158136-3b55d473-840b-43ed-ac73-3b85085b3b3f.png)
 
 - B matrix에서 각 토큰으로 부터 생성된 column 끼리는 서로 independent (독립적)
 
@@ -50,6 +50,7 @@ self-attention 내 dot product를 대체할 수 있을까
 3. Factorized Model
 - 기본 Transformer에서의 Q,K projection 과정을 생략하기 때문에 Synthesizer는 파라미터 절약
 - 그럼에도 l(sequence length)가 너무 길 때, 무델이 무거우므로 factorized variation을 통해 모든 Synthesizer에 적용하여 이 문제를 해결
+
 	A)  Factorized Dense Synthesizer
 	- Factorized output은 파라미터 cost도 줄일 수 있고 overfitting 방지에도 도움을 줌
 	![image](https://user-images.githubusercontent.com/56949426/134125018-73857372-2a0c-4ad6-a45c-c6820fc91f18.png)
@@ -65,16 +66,12 @@ self-attention 내 dot product를 대체할 수 있을까
 ![image](https://user-images.githubusercontent.com/56949426/134125869-66e336f4-ad7e-4ead-aa26-5984731f6cad.png)
 
 
-#### Dataset
+#### Task & Dataset
 	-  (1) machine translation (EnDe, EnFr) 
 	-  (2) autoregressive language modeling (LM1B) 
-	-  (3) text generation (summarization and dialogue modeling 
+	-  (3) text generation (summarization and dialogue modeling)
 	-  (4) multi-task natural language processing (GLUE/SuperGLUE)
 
-#### How did they do training?
-	- Loss: Cross Entropy
-	- Pruning
-	- Distillation
 
 #### Result
 R: Random
