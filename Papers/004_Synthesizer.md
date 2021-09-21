@@ -48,8 +48,8 @@ self-attention 내 dot product를 대체할 수 있을까
 - 다만 attention weights이 random 값으로 초기화되고(즉, input에 의존적이지 않음) 그 값들은 학습 가능하거나 고정도 가능
 
 3. Factorized Model
-- 기본 Transformer에서의 Q,K projection 과정을 생략하기 때문에 Synthesizer는 파라미터 절약
-- 그럼에도 l(sequence length)가 너무 길 때, 무델이 무거우므로 factorized variation을 통해 모든 Synthesizer에 적용하여 이 문제를 해결
+- 기본 Transformer에서의 Query, Key projection 과정을 생략하기 때문에 Synthesizer는 파라미터 절약
+- 그럼에도 L(sequence length)가 너무 길 때,  모델이 무거우므로 factorized variation을 통해 모든 Synthesizer에 적용하여 이 문제를 해결
 
 	A)  Factorized Dense Synthesizer
 	- Factorized output은 파라미터 cost도 줄일 수 있고 overfitting 방지에도 도움을 줌
@@ -75,11 +75,17 @@ self-attention 내 dot product를 대체할 수 있을까
 
 #### Result
 R: Random
+
 D: Dense
+
 V: vanilla dot product attention
+
 Fix: Fixed Random
+
 FR: Factorized Random
-FD: Factorized dENSE
+
+FD: Factorized Dense
+
 +: Mixture Synthesizers
 
 **Text Generation task**
