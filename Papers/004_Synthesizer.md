@@ -10,12 +10,12 @@
 
 ## Summary
 내 요약
-- self-attention 내 dot product는 필요하지 않을 수 있다.
+- self-attention 내 dot product가 유의미하지 않을 수도 있다. 이를 대체하는 Synthesizer
 
 ## Detail
 
 #### What problem are they trying to solve?
-self-attention 내 dot product를 대체할 수 있을까
+self-attention 내 dot product(quadratic interaction)를 대체할 수 있을까
 
 
 #### What model architecture was used?
@@ -89,13 +89,35 @@ FD: Factorized Dense
 +: Mixture Synthesizers
 
 **Text Generation task**
+
 ![image](https://user-images.githubusercontent.com/56949426/134126584-3e948ae0-20b7-4e4c-b670-b7cc650a6a1d.png)
 
-- 기본 R,D는 Transformer보다 더 좋은 성능이 나오지 않았음
-- Mixture들이 좋은 성능을 보임
+
+- CNN/Dailymail dataset에 대해 abstractive summarization task에선 D+V 가 성능 최고
+- Dialogue generation task 에서는 D가 성능 최고
+
+**Machine translation (EnDe, EnFr)**
+
+![image](https://user-images.githubusercontent.com/56949426/134282608-44ac2229-fb0e-4b00-849f-a2717ae2940a.png)
 
 
-#### Conclusion
+- A. 노란색: Transformer (자기내들이 돌린 거) -> Synthesizer (Dense)
+	a) Parameter 수 감소: 67 M -> 62 M 
+	b) EnDe BLEU 점수 27.67 -> 27.43 ( 꽤나 근사)
+- B. 초록색: Synthesizer (Random + Vanilla) 성능 최고
+	a) 즉, 원래 Transformer 에 Random을 붙여서 실험. 하지만 파라미터 수는 73 M으로 크게 증가했음
+	b) Synthesizer (Dense + Vanilla) 의 파라미터 수는 74 M 으로 더 크지만 성능은 감소했음
+	
+**Multi-task language understanding benchmark (GLUE and SuperGLUE)**
+
+![image](https://user-images.githubusercontent.com/56949426/134283403-c85c60bb-c027-4c18-bbb2-d8d0472dc69f.png)
 
 
+- R, D Synthesizer 는 크게 성능 향상을 이루지 x
+- 논문에서는 이 이유를 T5의 인코더 self-attention이 문장 간 어텐션 역할(cross-sentence attention)을 하기 때문일꺼라 추측 ( 더 문맥적 의미를 잘 파악해서)
+- T5(Base)나 Synthesizer(R + V) 가 각 task에서 높은 성능을 대체적으로 보임
 
+
+**Reference**
+- https://www.youtube.com/watch?v=q7QP_lfqnQM&t=1281s (paper review done by Yannic Kilcher)
+- https://seewoo5.tistory.com/2 (paper review done by seewoo5)
