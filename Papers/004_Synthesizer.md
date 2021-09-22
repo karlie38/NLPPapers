@@ -102,11 +102,13 @@ FD: Factorized Dense
 
 
 - A. 노란색: Transformer (자기내들이 돌린 거) -> Synthesizer (Dense)
-	a) Parameter 수 감소: 67 M -> 62 M 
-	b) EnDe BLEU 점수 27.67 -> 27.43 ( 꽤나 근사)
+
+	- a) Parameter 수 감소: 67 M -> 62 M 
+	- b) EnDe BLEU 점수 27.67 -> 27.43 ( 꽤나 근사)
 - B. 초록색: Synthesizer (Random + Vanilla) 성능 최고
-	a) 즉, 원래 Transformer 에 Random을 붙여서 실험. 하지만 파라미터 수는 73 M으로 크게 증가했음
-	b) Synthesizer (Dense + Vanilla) 의 파라미터 수는 74 M 으로 더 크지만 성능은 감소했음
+
+	- a) 즉, 원래 Transformer 에 Random을 붙여서 실험. 하지만 파라미터 수는 73 M으로 크게 증가했음
+	- b) Synthesizer (Dense + Vanilla) 의 파라미터 수는 74 M 으로 더 크지만 성능은 감소했음
 	
 **Multi-task language understanding benchmark (GLUE and SuperGLUE)**
 
