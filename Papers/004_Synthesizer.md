@@ -75,6 +75,7 @@ self-attention 내 dot product(quadratic interaction)를 대체할 수 있을까
 
 #### Result
 R: Random / D: Dense / V: vanilla dot product attention
+
 Fix: Fixed Random / FR: Factorized Random / FD: Factorized Dense /+: Mixture Synthesizers
 
 **Text Generation task**
