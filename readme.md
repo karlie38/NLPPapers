@@ -1,4 +1,4 @@
-#  ✨NLP Paper study 2021  
+#  ✨NLP Paper Review 2021  
 공부하는 거 정리하기
 
 ## Paper Lists
