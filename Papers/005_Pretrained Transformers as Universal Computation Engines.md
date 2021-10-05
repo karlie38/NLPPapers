@@ -72,7 +72,8 @@ universal computation이 가능하다는 건 다양한 modality을 넘나들며 
 
 ![image](https://user-images.githubusercontent.com/56949426/135736042-15fe97ec-747f-4b76-b5f6-f38503a24d1b.png)
 
-- 어떤 task에 대해서는 FPT가 LSTM에 비해 월등히 outperfrom 함 (노란색)
+- YES, 가능하다!
+- 어떤 task에 대해서는 FPT가 LSTM에 비해 월등히 outperfrom 함
 - 작은 dataset에 대해 12 layer의 transformer를 푼련시키는 건 어렵다는 걸 발견 (발산하거나 과적합 됨)
 	- CIFAR-10, ListOps, CIFAR-10 LRA 의 경우 3 layer transformer 로 훈련시킴
 
@@ -92,7 +93,7 @@ universal computation이 가능하다는 건 다양한 modality을 넘나들며 
 - ViT는 Homology(protein classification task)에서는 성능이 안좋아져서 아무래도 이 테스크가 nlp랑 성격이 비슷해서 언어에서 protein으로의 transfer 가 더 자연스런 성능향상으로 이루어지지 않나 생각한다함
 
 
-3. LSTM과 비교했을 때 **transformer architecture**는 어떻게 중요한가?
+3. LSTM과 비교했을 때 **transformer architecture**는 얼마나 중요한가?
 
 비슷한 아키텍쳐인 lstm을 갖고 비교
 
@@ -113,7 +114,7 @@ universal computation이 가능하다는 건 다양한 modality을 넘나들며 
 
 ![image](https://user-images.githubusercontent.com/56949426/135738657-786d1229-3d67-4f68-b106-f265cdced2be.png)
 
-- 그렇다. language pretraining은 random에 비해 **연산 효율 향상**시킴
+- YES. language pretraining은 random에 비해 **연산 효율 향상**시킴
 
 
 5. frozen attention layer는 **modality 특징을 잘 반영**하는 토큰 역할을 하는가? 
@@ -140,42 +141,53 @@ universal computation이 가능하다는 건 다양한 modality을 넘나들며 
 
 8. 성능이 initialization 에 의한 효과는 아닐까?
 
+![image](https://user-images.githubusercontent.com/56949426/135997250-cd8c0855-afee-4666-b6fa-a427c45e828f.png)
 
-- 모든 경우에 Statistics Only가 성능이 잘나온 게 아니라, 확실히 FPT의 효과가 있다
-그냥 random initialization으로 리커버할 수 없는
+![image](https://user-images.githubusercontent.com/56949426/135997398-5365be67-815c-4570-a5be-652cb6def751.png)
+
+
+- Pretrained: 원래 갖고 있는 GPT2 원본?
+- Statiscs only: random하게 초기화안하고 oracle(fully trained transformer)분포 statistics로 초기화함
+- Default: random initialization
+- 결과보면 Statiscs only 일때 그리 결과가 좋지 않아서 그닥 initialization의 효과는 크지 않은 거로 보임
 
 
 9. output layer만 파인튜닝해서 transformer를 훈련시킬 수 있을까?
 
+![image](https://user-images.githubusercontent.com/56949426/135998343-01533c1f-a33e-46c7-a84c-20ea6e98041c.png)
 
-10. 
+- output layer만 학습하면 연산 속도는 빨라지지만, 성능은 떨어짐
+- 별로 적절하지 않아보임
 
-11. 더 많은 파라미터를 훈련시키는 게 성능향상에 좋을까?
+10. 더 많은 파라미터를 훈련시키는 게 성능향상에 좋을까?
 
 ![image](https://user-images.githubusercontent.com/56949426/135783690-9843a684-d4e0-4c3d-a6c1-1da151dedcad.png)
 
+- NO!
 - Feedforward 추가하는 건 성능향상에 도움이 되지만 attention layer를 추가하는 건 도움이 되지 않는 듯
+- Feedforward, attention layer 다 추가하면 오히려 성능 떨어지고 있음
 
 
-12. 어떤 파라미터를 파인튜닝하는 게 중요할까?
+11. 어떤 파라미터를 파인튜닝하는 게 중요할까?
 
 ![image](https://user-images.githubusercontent.com/56949426/135783546-17b520e4-3421-4c2b-b9ab-a59113412d84.png)
 
 - layer norm을 파인튜닝하는 게 가장 중요한 것으로 보임
 
 
-13. FPT에서 **layer norm 을 파인튜닝**하는 게 성능 향상에 꼭 필요할까?
+12. FPT에서 **layer norm 을 파인튜닝**하는 게 성능 향상에 꼭 필요할까?
 
 ![image](https://user-images.githubusercontent.com/56949426/135782501-b56fbcdc-4421-4d42-9325-ef6555cadb19.png)
 
 - 응, FPT 에서 layer norm을 파인튜닝하는 게 성능 향상에 도움이 됨
 
 
-14. **다른 transformer 모델**들은 어떨까?
+13. 다른 transformer 모델들은 어떨까?
 
 ![image](https://user-images.githubusercontent.com/56949426/135782758-2094b24f-4668-4ce3-97bf-c861c03428d5.png)
 
-- transformer 계열 다른 모델들에 적용 시,  T5가 다른 애들에 비해 성능이 좀 낮긴 하지만, ListOps는 성능이 낮지만 CIFAR-10에 대해서 어느정도 성능을 보임
+- transformer 계열 다른 모델들에 적용 시, T5가 다른 애들에 비해 성능이 좀 낮긴 하지만, FPT가 보였던 경향 비슷하게 보임
+- ListOps task에서는 성능이 낮지만 CIFAR-10에 대해서 어느정도 성능을 보임
 
 **Reference**
 
