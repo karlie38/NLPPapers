@@ -9,3 +9,4 @@
 |003| GhostBERT: Generate More Features with Cheap Operations for BERT |
 |004| Synthesizer: Rethinking Self-Attention for Transformer Models |
 |005| Pretrained Transformers As Universal Computation Engines |
+|006| Extract Training Data from Large Language Models (doing) |
