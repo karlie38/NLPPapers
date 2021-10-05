@@ -3,10 +3,9 @@
 ***
 
 ## Info
-- ICML 2021 Spotlight
 - Author: Kevin Lu, Aditya Grover, Pieter Abbeel, Igor Mordatch
 - Paper link: https://arxiv.org/pdf/2103.05247.pdf
-- Github: -
+- Github: https://github.com/kzl/universal-computation
 - Google Brain, UC Berkeley, FAIR 공동 발표
 
 ## Summary
