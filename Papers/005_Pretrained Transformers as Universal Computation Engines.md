@@ -7,6 +7,7 @@
 - Author: Kevin Lu, Aditya Grover, Pieter Abbeel, Igor Mordatch
 - Paper link: https://arxiv.org/pdf/2103.05247.pdf
 - Github: -
+- Google Brain, UC Berkeley, FAIR 공동 발표
 
 ## Summary
 내 요약
@@ -56,8 +57,10 @@ universal computation이 가능하다는 건 다양한 modality을 넘나들며 
 #### Task & Dataset
 1. Task
 
-- Sequence prediction
-	- Bit memory, Bit XOR, ListOps
+- 토큰을 마스킹하고 원래 토큰을 복구하는 task
+	- Bit memory, Bit XOR
+- 수식을 계산하는 task라는데 잘 모르겠음..
+	- ListOps
 - Image classificaiton
 	- MNIST, CIFAR-10, CIFAR-10 LRA
 - Protein sequence prediction
@@ -135,11 +138,51 @@ universal computation이 가능하다는 건 다양한 modality을 넘나들며 
 - 모델 사이즈 커지면 성능 향상
 
 
+8. 성능이 initialization 에 의한 효과는 아닐까?
+
+
+- 모든 경우에 Statistics Only가 성능이 잘나온 게 아니라, 확실히 FPT의 효과가 있다
+그냥 random initialization으로 리커버할 수 없는
+
+
+9. output layer만 파인튜닝해서 transformer를 훈련시킬 수 있을까?
+
+
+10. 
+
+11. 더 많은 파라미터를 훈련시키는 게 성능향상에 좋을까?
+
+![image](https://user-images.githubusercontent.com/56949426/135783690-9843a684-d4e0-4c3d-a6c1-1da151dedcad.png)
+
+- Feedforward 추가하는 건 성능향상에 도움이 되지만 attention layer를 추가하는 건 도움이 되지 않는 듯
+
+
+12. 어떤 파라미터를 파인튜닝하는 게 중요할까?
+
+![image](https://user-images.githubusercontent.com/56949426/135783546-17b520e4-3421-4c2b-b9ab-a59113412d84.png)
+
+- layer norm을 파인튜닝하는 게 가장 중요한 것으로 보임
+
+
+13. FPT에서 **layer norm 을 파인튜닝**하는 게 성능 향상에 꼭 필요할까?
+
+![image](https://user-images.githubusercontent.com/56949426/135782501-b56fbcdc-4421-4d42-9325-ef6555cadb19.png)
+
+- 응, FPT 에서 layer norm을 파인튜닝하는 게 성능 향상에 도움이 됨
+
+
+14. **다른 transformer 모델**들은 어떨까?
+
+![image](https://user-images.githubusercontent.com/56949426/135782758-2094b24f-4668-4ce3-97bf-c861c03428d5.png)
+
+- transformer 계열 다른 모델들에 적용 시,  T5가 다른 애들에 비해 성능이 좀 낮긴 하지만, ListOps는 성능이 낮지만 CIFAR-10에 대해서 어느정도 성능을 보임
+
 **Reference**
 
 https://www.youtube.com/watch?v=2rB5aTdRTJM
+
 https://seewoo5.tistory.com/19?category=852389
+
 https://bair.berkeley.edu/blog/2021/03/23/universal-computation/
+
 https://www.youtube.com/watch?v=Elxn8rS88bI
-
-
