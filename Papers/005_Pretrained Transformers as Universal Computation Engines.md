@@ -146,9 +146,9 @@ universal computation이 가능하다는 건 다양한 modality을 넘나들며 
 
 
 - Pretrained: 원래 갖고 있는 GPT2 원본?
-- Statiscs only: random하게 초기화안하고 oracle(fully trained transformer)분포 statistics로 초기화함
+- Statistics only: random하게 초기화안하고 oracle(fully trained transformer)분포 statistics로 초기화함
 - Default: random initialization
-- 결과보면 Statiscs only 일때 그리 결과가 좋지 않아서 그닥 initialization의 효과는 크지 않은 거로 보임
+- 결과보면 Statistics only 일때 그리 결과가 좋지 않아서 그닥 initialization의 효과는 크지 않은 거로 보임
 
 
 9. output layer만 파인튜닝해서 transformer를 훈련시킬 수 있을까?
